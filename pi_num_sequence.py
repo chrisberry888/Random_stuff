@@ -2,15 +2,17 @@
 #a+b=n and a/b is a better approximation of pi (or e) (or any other number than the previous n.
 import math
 
+print(math.pi)
 n = 1
 last_n = 1
 a = 0
 b = 1
-pi = math.e
-diff = math.e
-print(n)
+pi = math.pi
+diff = math.pi
 
-for i in range(5000):
+print("%.48f" % diff)
+
+for i in range(9000):
     n += 1
     for j in range(n-1):
         if abs(pi - (j + 1)/(n - (j + 1))) < diff:
@@ -20,5 +22,6 @@ for i in range(5000):
             a = j+1
             b = n-a
             
-            print("%d,   %f,    %d,    %d,    %f" % (n,diff,a,b,(a/b)))
+            print("%d,   %.9f,    %d,    %d,    %f" % (n,diff,a,b,(a/b)))
             break
+    b += 1
