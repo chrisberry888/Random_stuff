@@ -11,4 +11,4 @@ def not_div(n):
             temp += i
 
 
-not_div(3)
+not_div(4)
