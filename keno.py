@@ -93,8 +93,8 @@ def keno(spots, bonus):
         winners_value.append(winning_tix * pay_tables[spots][key])
     
     
-    win_percent = round(total_tickets/sum(winners), 3)
-    EV_of_one_card = round(sum(winners_value)/total_tickets, 3)
+    win_percent = round(total_tickets/sum(winners), 2)
+    EV_of_one_card = round(sum(winners_value)/total_tickets, 4)
     return [win_percent, EV_of_one_card]
     
 
