@@ -7,6 +7,7 @@ class Game:
         self.max_value = 0
         self.current_value = 0
         self.percent_prob_of_reset = 0
+        self.presses_to_new_max = [0]
 
     def push_button(self):
         self.total_presses += 1
@@ -25,3 +26,14 @@ class Game:
         self.percent_prob_of_reset += 1
         if self.current_value > self.max_value:
             self.max_value = self.current_value
+            self.presses_to_new_max.append(self.total_presses)
+    
+    def print_stats(self):
+        print(f"Max Value: {self.max_value}")
+        print(f"Total Presses: {self.total_presses}")
+        print(f"Total Resets: {self.total_resets}")
+
+        i = 0
+        for value in self.presses_to_new_max:
+            print(f"Presses to {i}: {value}")
+            i += 1
