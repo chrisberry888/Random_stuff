@@ -1,4 +1,4 @@
-from Game_obj import Game
+from game_obj import Game
 
 first_game = Game()
 
