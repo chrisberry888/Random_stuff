@@ -25,4 +25,3 @@ class Game:
         self.percent_prob_of_reset += 1
         if self.current_value > self.max_value:
             self.max_value = self.current_value
-    
