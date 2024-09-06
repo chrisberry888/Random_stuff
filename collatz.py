@@ -11,7 +11,7 @@ def collatz(n):
     print("STEPS: %d" % (steps))
     return array
     
-c = collatz(63728127)
+c = collatz(77566362559)
 
 for num in c:
     print(num)
