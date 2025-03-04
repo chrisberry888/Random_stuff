@@ -26,12 +26,21 @@ def find_all_permutations(strings, fingers):
     return permutations
 
 
+def print_chords_with_root_as_lowest(permutation, tuning):
+    pass
+
+def print_all_chords(permutation, tuning):
+    print_chords_with_root_as_lowest(permutation, tuning)
+
+
 def guitar_chords_finder():
     tuning = Tuning.E_STANDARD.value
     strings = len(tuning)
     
     permutations = find_all_permutations(strings, 4)
 
+    for permutation in permutations:
+        print_all_chords(permutation, tuning)
 
 
-print(find_all_permutations(6, 4))
+
