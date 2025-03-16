@@ -8,6 +8,7 @@ def interest_calculator(principal, deposit_amount, deposits_per_year, apr, compo
 
     has_interest_surpassed_deposits = False
     for year in range(years):
+        calculate_balance_after_day
         for day in range(365):
             if day % days_per_compound == 0:
                 interest_from_interest += (interest_from_interest + interest_from_deposits) * apr/compounds_per_year
