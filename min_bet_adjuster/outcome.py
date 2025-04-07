@@ -1,9 +1,9 @@
+from dataclasses import dataclass
 
+@dataclass
 class Outcome:
+    name: str
     probability_of_occuring: float
+    popularity_percent: float
+    money_on_outcome: float
 
-    def __init__(self, probability_of_happening, popularity_percent):
-        self.probability_of_occuring = probability_of_happening
-        self.popularity_percent = popularity_percent
-
-        
