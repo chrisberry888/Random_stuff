@@ -1,0 +1,1 @@
+Making this directory to test whether or not I can run Jupyter notebooks in VScode on my newly configured Arch machine.
