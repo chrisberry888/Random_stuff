@@ -1,4 +1,77 @@
-.venv
-**/__pycache__
-*.sh
-actual_executable
+# Generated with Gemini to make sure I'm not uploading unnecessary things to github
+#
+# -------------------------------------------------------------------------
+# 1. Python and Pipenv Files
+# -------------------------------------------------------------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Pipenv / Virtual Environment Files (IGNORE THESE!)
+# Pipenv automatically places them outside the project by default, 
+# but they may be placed locally if PIPENV_VENV_IN_PROJECT is set.
+# Include all common names just to be safe.
+.venv/
+venv/
+env/
+*/*/.venv/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.manifest
+pip-log.txt
+pip-delete-this-directory.txt
+
+# -------------------------------------------------------------------------
+# 2. Jupyter Notebook Files
+# -------------------------------------------------------------------------
+# Checkpoints are generated automatically
+.ipynb_checkpoints/
+
+# -------------------------------------------------------------------------
+# 3. VS Code Files
+# -------------------------------------------------------------------------
+# Ignore all VS Code files by default...
+.vscode/
+
+# ... but optionally, UNCOMMENT the lines below if you want to share 
+# recommended extensions and core settings with your team.
+#!.vscode/settings.json
+#!.vscode/extensions.json
+
+# -------------------------------------------------------------------------
+# 4. Miscellaneous Local Files
+# -------------------------------------------------------------------------
+# Log and Database files
+*.log
+*.sqlite
+*.sqlite3
+
+# Environment Variables (for security)
+.env
+.flaskenv
+
+# Testing/coverage files
+htmlcov/
+.tox/
+.coverage
+.cache
+.pytest_cache/
