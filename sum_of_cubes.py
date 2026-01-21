@@ -36,7 +36,7 @@ def get_cubes_list(num: int) -> list[int]:
     return cubes
 
 
-def get_cube_sums(num: int) -> tuple[list[int], list[list[int]]]:
+def get_cube_sums(year: int, total: int) -> tuple[list[int], list[list[int]]]:
     '''
     THIS DESCRIPTION IS WRONG BUT I'M TOO LAZY TO CHANGE IT
     Input: num = any integer > 1
@@ -45,21 +45,24 @@ def get_cube_sums(num: int) -> tuple[list[int], list[list[int]]]:
     with each sublist representing one sum of cubes that sums to num.
     
     Example:
-    get_cube_sums(10) would return [[1,8], [[10,0],[2,1]]]
+    get_cube_sums(10, 2) would return [[1,8], [[10,0],[2,1]]]
     Since 1 and 8 are the only two cubes that we'd need, and the only two ways of summing 10 using these
     two cubes is: 10 = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1, or 10 = 1 + 1 + 8.
     '''
-
-    cubes = get_cubes_list(num)
-    list_of_cube_sums = []
-
-    current_answer = [0 for i in range(len(cubes))]
-    # for 
-
-
-
+    return_list_of_cube_sums = []
+    cubes = get_cubes_list(year)
+    current_answer = [total] + [0 for i in range(len(cubes))]
+    last_answer = [0 for i in range(len(cubes))] + [total]
+    while current_answer != last_answer:
+        if dot(cubes, current_answer) == year:
+            return_list_of_cube_sums.append(current_answer.copy())
+        cycle(current_answer)
+    
     print(cubes)
-    pass
+    print(return_list_of_cube_sums)
+
+    return cubes, return_list_of_cube_sums
+    
 
 
 def cycle(current_list):
@@ -116,23 +119,29 @@ def make_strings(big_num, list_of_lists, cubes):
 
 
 def hyperspecific():
+    year = 2025
     final_list = []
     cubes = [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728]
     current_answer = [7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     last_answer = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7]
     while current_answer != last_answer:
-        if dot(cubes, current_answer) == 2026:
+        if dot(cubes, current_answer) == year:
             final_list.append(current_answer.copy())
         cycle(current_answer)
 
 
-    for my_string in make_strings(2026, final_list, cubes):
+    for my_string in make_strings(year, final_list, cubes):
         print(my_string)
 
 
 
 def main():
-    hyperspecific()
+    # hyperspecific()
+    year = 2026
+    cubes, list_of_combos = get_cube_sums(year, 7)
+    strings = make_strings(year, list_of_combos, cubes)
+    for string in strings:
+        print(string)
 
 if __name__ == "__main__":
     main()
