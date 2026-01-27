@@ -21,7 +21,7 @@ import sys
 
 def get_cubes_list(num: int) -> list[int]:
     '''
-    Takes any positive integer as input, and outputs the list of cubes smaller than it.
+    Takes any positive integer as input, and outputs the list of cube numbers smaller than it.
     
     :param num: Any integer greater than or equal to 1
     :type num: int
@@ -91,7 +91,10 @@ def cycle(current_list):
             current_list[i] -= 1
             current_list[i+1] = 1 + addend
             return
-        
+    
+    # If all cells except the last one are 0, then put the contents of the last cell into the first cell
+    current_list[0] = addend
+    return
 
 def dot(list1, list2):
     '''
@@ -119,7 +122,7 @@ def make_strings(big_num, list_of_lists, cubes):
 
 
 def hyperspecific():
-    year = 2025
+    year = 2026
     final_list = []
     cubes = [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728]
     current_answer = [7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -136,7 +139,10 @@ def hyperspecific():
 
 
 def main():
-    # hyperspecific()
+    # Hard-coding the specific case of year=2026 and number of cubes = 7
+    hyperspecific()
+    print()
+    # Trying (and so far failing) to generalize for any year or number of cubes
     year = 2026
     cubes, list_of_combos = get_cube_sums(year, 7)
     strings = make_strings(year, list_of_combos, cubes)
