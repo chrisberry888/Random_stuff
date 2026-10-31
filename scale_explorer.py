@@ -30,7 +30,7 @@ def scale_finder():
             scales.append(temp)
         
     for scale in scales:
-        print(scale)
+        print(f'{scale}')
         
     return scales
         
@@ -104,3 +104,18 @@ scales = scale_finder()
 chords = scale_explorer_1(scales)
 for arr in chords:
     print(arr)
+
+
+
+# adding 10/31/26
+
+chords_pivoted = [list(column) for column in zip(*chords)]
+chord_frequency = {}
+for arr in chords_pivoted:
+    for chord in arr:
+        chord_frequency[chord] = chord_frequency.get(chord, 0) + 1
+
+
+            
+for chord in chord_frequency:
+    print(f'{chord} : {chord_frequency.get(chord)}')
