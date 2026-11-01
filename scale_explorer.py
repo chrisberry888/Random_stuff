@@ -1,5 +1,6 @@
 #this whole program describes every septatonic scale containing only major and minor thirds.
 
+import itertools
 
 def is_valid(arr):
     if sum(arr) != 12:
@@ -102,20 +103,47 @@ def scale_explorer_1(scales):
         
 scales = scale_finder()        
 chords = scale_explorer_1(scales)
-for arr in chords:
-    print(arr)
-
-
 
 # adding 10/31/26
 
-chords_pivoted = [list(column) for column in zip(*chords)]
+
 chord_frequency = {}
-for arr in chords_pivoted:
-    for chord in arr:
+scale_degrees = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii']
+accidentals = ['bb', 'b', '', '#']
+
+for scale_degree, accidental in itertools.product(scale_degrees, accidentals):
+    
+    if scale_degree == 'i' and accidental != '':
+        continue
+    if scale_degree == 'ii' and accidental == 'bb':
+        continue
+    if scale_degree == 'vii' and accidental == '#':
+        continue
+    major = accidental + scale_degree.upper()
+    augmented = major + '+'
+    minor = accidental + scale_degree
+    diminished = minor + 'o'
+    chord_frequency[major] = 0
+    chord_frequency[augmented] = 0
+    chord_frequency[minor] = 0
+    chord_frequency[diminished] = 0
+
+
+for scale in chords:
+    print(scale)
+    for chord in scale:
         chord_frequency[chord] = chord_frequency.get(chord, 0) + 1
 
 
             
 for chord in chord_frequency:
+    print(f'{chord} : {chord_frequency.get(chord)}')
+
+print()
+print()
+sorted_dict = {}
+for key in sorted(chord_frequency, key=chord_frequency.get, reverse=True):
+    sorted_dict[key] = chord_frequency[key]
+
+for chord in sorted_dict:
     print(f'{chord} : {chord_frequency.get(chord)}')
